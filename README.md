@@ -1,9 +1,5 @@
 # AMD ROCm Installation Guide on RX 6600 XT + TensorFlow and PyTorch
 
-<p align="center" dir="auto">
-  <img src="https://github.com/alfinauzikri/ROCm-RX6600XT/assets/14070303/54fc5b47-9a03-4bf5-9415-ca76af82fe3e" height="150px">
- </p>
-
 ## What is ROCm?
 ROCm is an open-source stack for GPU computation. ROCm is primarily Open-Source Software (OSS) that allows developers the freedom to customize and tailor their GPU software for their own needs while collaborating with a community of other developers, and helping each other find solutions in an agile, flexible, rapid and secure manner. [Read More..](https://rocm.docs.amd.com/en/latest/rocm.html)
 
@@ -51,6 +47,22 @@ sudo amdgpu-install --usecase=hiplibsdk,rocm
 
 After everything has been done, `reboot` your system.
 
+## Docker Engine Installation
+1. Install Docker Engine using bash script, run the following commands:
+```
+curl -sSL https://get.docker.com/ | sudo sh
+```
+2. The Docker daemon binds to a Unix socket, not a TCP port. By default it’s the root user that owns the Unix socket, and other users can only access it using `sudo`. The Docker daemon always runs as the `root` user. Run the following commands:
+```
+sudo groupadd docker
+```
+```
+sudo usermod -aG docker $USER
+```
+```
+newgrp docker
+```
+
 ## TensorFlow Installation
 1. Pull the latest public TensorFlow Docker image.
 ```
@@ -74,5 +86,5 @@ docker run -it --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --device=/
 ## Tips and Tricks
 Make sure before running any program in either TensorFlow or PyTorch, run the following command:
 ```
-export HSA_OVERRIDE_GFX_VERSION=10.3.0
+HSA_OVERRIDE_GFX_VERSION=10.3.0
 ```
