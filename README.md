@@ -90,3 +90,5 @@ HSA_OVERRIDE_GFX_VERSION=10.3.0
 ```
 ## Results
 ![Screenshot from 2023-06-07 12-18-21](https://github.com/alfinauzikri/ROCm-RX6600XT/assets/14070303/603534a7-6571-4c86-bda6-1ae0575ec71a)
+![Screenshot from 2023-06-07 12-28-51](https://github.com/alfinauzikri/ROCm-RX6600XT/assets/14070303/c831e0f5-81ac-4901-bcb2-388767cdc778)
+
